@@ -1,0 +1,38 @@
+[Unit]
+Description=linkprobe 链路质量监控
+Documentation=https://github.com/example/linkprobe
+After=network-online.target time-sync.target
+Wants=network-online.target time-sync.target
+
+[Service]
+Type=simple
+User=linkprobe
+Group=linkprobe
+ExecStart=/opt/linkprobe/linkprobe -config /etc/linkprobe/config.yaml
+WorkingDirectory=/var/lib/linkprobe
+Restart=on-failure
+RestartSec=5s
+
+# Raw sockets are needed for ICMP. Everything else runs unprivileged.
+AmbientCapabilities=CAP_NET_RAW
+CapabilityBoundingSet=CAP_NET_RAW
+NoNewPrivileges=true
+
+# Hardening: the only writable path is the data directory.
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+ReadWritePaths=/var/lib/linkprobe
+StateDirectory=linkprobe
+
+MemoryMax=256M
+TasksMax=256
+LimitNOFILE=8192
+
+[Install]
+WantedBy=multi-user.target

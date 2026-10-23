@@ -1,0 +1,23 @@
+# build output
+build/
+*.exe
+
+# front end dependencies (the built dist/ is committed so a fresh clone builds)
+web/node_modules/
+
+# local data and config
+*.db
+*.db-wal
+*.db-shm
+config.yaml
+config.local.yaml
+
+# editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+
+# logs
+*.log
