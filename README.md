@@ -2,6 +2,8 @@
 
 家庭远程服务器连接质量监控。单个 Go 二进制，内嵌 Vue 3 前端，数据全部存在本机 SQLite；不依赖外部 CDN、在线字体、Redis 或任何云服务，断外网也能正常打开界面。
 
+![总览页：延迟折线与丢包柱状双图联动](docs/screenshot-overview.png)
+
 ## 功能
 
 - **两种探测**：ICMP（`golang.org/x/net/icmp`，不派生子进程）和 TCP 建连；每轮默认 5 个包，30 秒一次。
