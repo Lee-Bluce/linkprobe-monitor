@@ -27,8 +27,14 @@ internal/health/      主机健康指标
 web/                  Vue 3 + Vite + ECharts（按需引入）
 deploy/               systemd 单元与安装脚本
 tools/fakegen/        演示数据生成与查询压测（不参与服务构建）
+scripts/build.sh      Linux / macOS 构建脚本（前端 + 交叉编译）
 scripts/build.ps1     Windows 构建脚本（前端 + arm64 交叉编译）
 ```
+
+## 版本历史
+
+- **1.0.1**：修复总览页「未分组」分组常驻拖拽高亮的问题。此前 `overGroup` 的初始值 `null` 与未分组的 `group.id === null` 相等，导致该分组一直被渲染成 `.group-drop.over`（`--accent-soft` 底色 + 内描边），在节点不满一行时右侧空余区域会露出一块异色；现在改为按 `groupKey()` 比较且要求拖拽进行中才高亮。
+- **1.0.0**：首个版本。
 
 ## 构建
 

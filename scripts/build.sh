@@ -5,7 +5,7 @@ set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GOOS="${GOOS:-linux}"
 GOARCH="${GOARCH:-arm64}"
-VERSION="${VERSION:-1.0.0}"
+VERSION="${VERSION:-1.0.1}"
 OUT="build/linkprobe-${GOOS}-${GOARCH}"
 
 cd "$root/web"

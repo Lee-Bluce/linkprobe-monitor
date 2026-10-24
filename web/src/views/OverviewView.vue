@@ -313,8 +313,8 @@ watch(
         <div
           v-show="!isCollapsed(group)"
           class="group-drop"
-          :class="{ over: overGroup === (group.id ?? null) }"
-          @dragover.prevent="overGroup = group.id ?? null"
+          :class="{ over: dragging && overGroup === groupKey(group) }"
+          @dragover.prevent="overGroup = groupKey(group)"
           @dragleave="overGroup = null"
           @drop.prevent="dropOnGroup(group.id ?? null)"
         >

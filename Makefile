@@ -1,6 +1,6 @@
 .PHONY: web build build-arm64 build-amd64 test fakegen clean
 
-VERSION ?= 1.0.0
+VERSION ?= 1.0.1
 BUILD_TIME := $(shell date -u +%Y-%m-%dT%H:%M:%SZ)
 LDFLAGS := -s -w -X main.version=$(VERSION) -X main.buildTime=$(BUILD_TIME)
 
